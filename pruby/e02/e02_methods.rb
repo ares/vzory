@@ -1,0 +1,41 @@
+# returns true if +a and +b substrings are separated by +separator in a +string
+# returns false otherwise
+# see http://ruby-doc.org/core/String.html for help
+def separated_by?(string, a, b, separator)
+  return false if separator.nil?
+  string.include? a + separator + b
+end
+
+# returns true if +string reads the same way from both ends, e.g. krk
+# returns false otherwise
+def palindrom?(string)
+  return false unless string.is_a?(String)
+  string == string.reverse
+end
+
+# return count of palindroms in +array
+def palindroms_count(array)
+  return array.count { |i| palindrom?(i) }
+  array.select { |i| palindrom?(i) }.count
+end
+
+# returns true if +number is power of 2, e.g. 4, 8, 16
+# returns false otherwise
+def power_of_2?(number)
+  (0..number).any? { |i| 2 ** i == number }
+end
+
+# returns a hash, +keys is an array of keys, +values is an array of values
+# so that build_hash_from([1, 'a'], ['one', 'A']) will return { 1 => 'one', 'a' => 'A' }
+# hash should have as many entries as keys, if there are no values for keys use nil
+def build_hash_from(keys, values)
+  hash = {}
+  i = 0
+  keys.each do |key|
+    hash[key] = values[i]
+    i += 1
+  end
+  hash
+end
+
+

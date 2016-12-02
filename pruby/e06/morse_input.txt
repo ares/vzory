@@ -1,0 +1,8 @@
+hello world
+this is multiline
+message
+and
+
+each word
+should be
+encoded
